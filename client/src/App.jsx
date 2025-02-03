@@ -1,11 +1,19 @@
 import React from 'react'
-import TaskList from './components/TaskList'
+import OrderForm from './components/OrderForm'
+import OrderList from './components/OrderList'
+import useOrders from './hooks/useOrders'
+import './App.css'
 
-const App = () => {
+function App() {
+  const { orders, loading, error, addOrder } = useOrders()
+
   return (
-    <div>
-      <h1>Список задач</h1>
-      <TaskList />
+    <div className='app-container'>
+      <h1>Служба доставки еды</h1>
+      <div className='content-wrapper'>
+        <OrderForm onSubmit={addOrder} />
+        <OrderList orders={orders} loading={loading} error={error} />
+      </div>
     </div>
   )
 }

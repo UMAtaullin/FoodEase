@@ -1,0 +1,15 @@
+.order-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+}
+
+.order-item h3 {
+  margin: 0 0 10px;
+}
+
+.order-item p {
+  margin: 5px 0;
+}
