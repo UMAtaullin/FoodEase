@@ -2,7 +2,8 @@
 npm create vite .
 npm i
 npm run dev
-
+npm install @mui/x-date-pickers@^6.19.0 dayjs@^1.11.10
+npm i react-router-dom
 
 #backend
 git clone git@github.com:UMAtaullin/FoodEase.git
