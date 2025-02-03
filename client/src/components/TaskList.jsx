@@ -1,25 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from 'react'
+import TaskItem from './TaskItem'
+import useTasks from '../hooks/useTasks'
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/api/tasks/')
-        setTasks(response.data)
-      } catch (err) {
-        setError('Ошибка при загрузке задач')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchTasks()
-  }, [])
+  const { tasks, loading, error } = useTasks()
 
   if (loading) return <p>Загрузка...</p>
   if (error) return <p>{error}</p>
@@ -27,9 +11,7 @@ const TaskList = () => {
   return (
     <ul>
       {tasks.map((task) => (
-        <li key={task.id}>
-          {task.title} - {task.completed ? 'Завершена' : 'Не завершена'}
-        </li>
+        <TaskItem key={task.id} task={task} />
       ))}
     </ul>
   )
