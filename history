@@ -2,7 +2,16 @@ git clone git@github.com:UMAtaullin/FoodEase.git
 cd server
 python3 -m venv .env
 source .env/bin/activate
+python -m pip install Django==5.1.5
+pip list
+./manage.py startapp main
 django-admin startproject core .
+python manage.py startapp order
+python manage.py makemigrations
+python manage.py migrate
+pip freeze > requirements.txt
+
+
 
 
 
